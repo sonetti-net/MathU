@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "MathU": {
+      "commandName": "Project"
+    },
+    "Debug": {
+      "commandName": "Executable",
+      "executablePath": "F:\\Sonetti\\Development\\Libraries\\MathU\\Debug\\bin\\Debug\\net6.0\\Debug.exe"
+    }
+  }
+}
