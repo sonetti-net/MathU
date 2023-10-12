@@ -15,6 +15,18 @@
 		return (x * x);
 	}
 
+	public static double Pow(double x, int pow)
+	{
+		double y = x;
+		int i = 1;
+
+		while (i++ < pow)
+		{
+			y *= x;
+		}
+		return y;
+	}
+
 	public static double Sqrt(double x)
 	{
 		double y = 0;

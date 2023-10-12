@@ -13,6 +13,7 @@
 
 	public float Magnitude()
 	{
+		
 		return 0;
 	}
 }
