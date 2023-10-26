@@ -10,7 +10,7 @@
 - Vector3.ToString()
 - Operations: *, +, /, -
 
-### Matrix
+### Matrices
 - Usage: Matrix matrix1x3 = new Matrix(1, 3);
 - Operations: *
 - Features: Will throw exception when multiplication not supported.
