@@ -1,4 +1,6 @@
 # MathU
+Math Utilities: Stuff I've gone and learned at university.
+Last updated: 26/10/2023
 
 ***
 
@@ -16,9 +18,14 @@
 - Features: Will throw exception when multiplication not supported.
 ***
 
-Misc functions/operations:
-Sqrt(x)
-Floor(x)
-Pow(x, pow)
+## Misc Functions/Operations:
+- Sqrt(x)
+- Floor(x)
+- Pow(x, power)
 
 
+***
+## Planned:
+- Quaternions
+- Euler rotations
+- Matrix rotation
