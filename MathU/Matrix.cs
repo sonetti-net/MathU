@@ -29,6 +29,7 @@
 
 			return output;
 		}
+
 		public static Matrix operator *(Matrix A, Matrix B)
 		{
 			if (A.cols == B.rows)
@@ -49,7 +50,7 @@
 
 				return result;
 			}
-			else
+			else // Abort if mutiplication not possible.
 			{
 				throw new Exception("Cannot multiply");
 			}
