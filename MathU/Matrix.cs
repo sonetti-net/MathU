@@ -1,6 +1,6 @@
 ﻿namespace MathU
 {
-	public class Matrix
+	public struct Matrix
 	{
 		public int rows { get; set; }
 		public int cols { get; set; }
