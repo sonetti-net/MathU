@@ -5,13 +5,13 @@
 		public int rows { get; set; }
 		public int cols { get; set; }
 
-		public int[,] data { get; set; }
+		public float[,] data { get; set; }
 
 		public Matrix(int rows, int cols)
 		{
 			this.rows = rows;
 			this.cols = cols;
-			this.data = new int[rows, cols];
+			this.data = new float[rows, cols];
 		}
 
 		public override string ToString()
@@ -22,7 +22,7 @@
 			{
 				for (int y = 0; y < this.cols; y++)
 				{
-					output += $"{this.data[x, y]}, ";
+					output += $"{this.data[x, y].ToString("0.00")}, ";
 				}
 				output += "\n";
 			}
@@ -39,7 +39,7 @@
 				{
 					for ( int j = 0; j < B.cols; j++)
 					{
-						int sum = 0;
+						float sum = 0;
 						for (int k = 0; k < A.cols; k++)
 						{
 							sum += A.data[i,k] * B.data[k, j];
@@ -55,5 +55,126 @@
 				throw new Exception("Cannot multiply");
 			}
 		}
+
+		public static Matrix operator +(Matrix left, Matrix right)
+		{
+			if (left.rows == right.rows && left.cols == right.cols)
+			{
+				Matrix result = new Matrix(left.rows, left.cols);
+
+				for (int i = 0; i < left.rows; i++)
+				{
+					for (int j = 0; j < left.cols; j++)
+					{
+						result.data[i, j] = left.data[i, j] + right.data[i, j]; ;
+					}
+				}
+				return result;
+			}
+			else
+			{
+				throw new Exception("Cannot add");
+			}
+		}
+		public static Matrix operator -(Matrix left, Matrix right)
+		{
+			if (left.rows == right.rows && left.cols == right.cols)
+			{
+				Matrix result = new Matrix(left.rows, left.cols);
+
+				for (int i = 0; i < left.rows; i++)
+				{
+					for (int j = 0; j < left.cols; j++)
+					{
+						result.data[i, j] = left.data[i, j] - right.data[i, j];
+					}
+				}
+				return result;
+			}
+			else
+			{
+				throw new Exception("Cannot add");
+			}
+		}
+
+		public static Matrix Dot(Matrix left, Matrix right)
+		{
+			if (left.rows == right.cols)
+			{
+				Matrix result = new Matrix(left.rows, right.cols);
+
+				for (int i = 0; i < left.rows; i++)
+				{
+					for (int j = 0; j < right.cols; j++)
+					{
+						for (int k = 0; k < left.cols; k++)
+						{
+
+						}
+					}
+				}
+
+
+				return result;
+			}
+			else
+			{
+				throw new Exception("Mismatched matrix");
+			}
+		}
+
+		public float Magnitude()
+		{
+			float sum = 0;
+
+			for (int i = 0; i < rows; i++)
+			{
+				for (int j = 0; j < cols; j++)
+				{
+					sum += (this.data[i, j] * this.data[i, j]);
+				}
+			}
+
+			return (float)Math.Sqrt(sum);
+		}
+
+		public Matrix Unit()
+		{
+			Matrix result = new Matrix(rows, cols);
+
+			float mag = this.Magnitude();
+
+			for (int i = 0; i < rows; i++)
+			{
+				for (int j = 0; j < cols; j++)
+				{
+					result.data[i, j] = this.data[i,j] / mag;
+				}
+			}
+			return result;
+		}
+
+		public static Matrix Identity(int n)
+		{
+			Matrix result = new Matrix(n, n);
+			
+			for (int i = 0; i < result.rows; i++)
+			{
+				for (int j = 0; j < result.cols; j++)
+				{
+					if (i == j)
+					{
+						result.data[i, j] = 1;
+					}
+					else
+					{
+						result.data[i, j] = 0;
+					}
+				}
+			}
+			return result;
+		}
+
+
 	}
 }
