@@ -52,6 +52,26 @@
 			return new Vector3(this.x / this.Magnitude(), this.y / this.Magnitude(), this.z / this.Magnitude());
 		}
 
+		public static float Dot(Vector3 left, Vector3 right)
+		{
+			float result = 0;
+
+			result += left.x * right.x;
+			result += left.y * right.y;
+			result += left.z * right.z;
+
+			return result;
+		}
+		public static Vector3 Cross(Vector3 left, Vector3 right)
+		{
+			Vector3 result = new Vector3();
+			result.x = (left.y * right.z) - (left.z * right.y);
+			result.y = (left.z * right.x) - (left.x * right.z);
+			result.z = (left.x * right.y) - (left.y * right.x);
+
+			return result;
+		}
+
 		/// <summary>
 		/// 
 		/// </summary>

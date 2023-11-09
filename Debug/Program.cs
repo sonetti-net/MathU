@@ -104,11 +104,61 @@ namespace Debug
 
 			Console.WriteLine(Matrix.Dot(a, b));
 			Console.WriteLine((a * b).ToString());
-			
+
+			Vector3 A = new Vector3(1, 2, 3);
+			Vector3 B = new Vector3(-2, -1, 0);
+
+			Console.WriteLine(Vector3.Dot(A, B));
+			Console.WriteLine(Vector3.Cross(A, B).ToString());
+
 		}
 
 		public static void Q5()
 		{
+			Matrix a = new Matrix(2, 3);
+			a.data[0, 0] = 1;
+			a.data[0, 1] = 3;
+			a.data[0, 2] = 6;
+			a.data[1, 0] = 2;
+			a.data[1, 1] = 4;
+			a.data[1, 2] = 0;
+
+			Matrix b = new Matrix(3, 3);
+			b.data[0, 0] = -1;
+			b.data[0, 1] = 0;
+			b.data[0, 2] = 1;
+			b.data[1, 0] = 2;
+			b.data[1, 1] = 2;
+			b.data[1, 2] = 2;
+			b.data[2, 0] = 4;
+			b.data[2, 1] = 3;
+			b.data[2, 2] = 2;
+
+			Console.WriteLine($"a = {a.ToString()}\nb = {b.ToString()}");
+			Console.WriteLine($"ab = {(a * b).ToString()}");
+			Console.WriteLine(a.Transpose().ToString());
+
+
+		}
+
+		public static void KhanAcademyDemo()
+		{
+			Vector2 a = new Vector2(3, 2);
+			Vector2 b = new Vector2(-3, 2);
+			Vector2 c = new Vector2(3, -2);
+
+
+			Console.WriteLine($"a\n{a.ToString()}\nb\n{b.ToString()}\nc\n{c.ToString()}");
+
+			Vector2 transform = new Vector2(-1, 2);
+
+			Console.WriteLine($"Transform\n{transform.ToString()}");
+
+			Matrix identity = Matrix.Identity(2);
+			Console.WriteLine($"Identity\n{identity.ToString()}");
+
+			Console.WriteLine($"{(identity*transform).ToString()}");
+			Console.WriteLine($"{(transform * identity).ToString()}");
 
 		}
 		static int Main()
@@ -119,11 +169,15 @@ namespace Debug
 			//Q2();
 			//Q3();
 			//Q4();
-			Q5();
+			//Q5();
+
+			KhanAcademyDemo();
 			//Matrix identity = Matrix.Identity(3);
-			
+
 			//Console.WriteLine(identity.ToString());
 			//Console.WriteLine(1 + (1 - 1 % 5));
+
+
 
 			int n = 499;
 

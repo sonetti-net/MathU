@@ -69,6 +69,22 @@
 			}
 		}
 
+		public static Matrix operator *(Matrix A, Vector2 right)
+		{
+			Matrix rightM = new Matrix(2, 1);
+			rightM.data[0, 0] = right.x;
+			rightM.data[1, 0] = right.y;
+			return (A * rightM);
+		}
+
+		public static Matrix operator *(Vector2 left, Matrix right)
+		{
+			Matrix leftM = new Matrix(2, 1);
+			leftM.data[0, 0] = left.x;
+			leftM.data[1, 0] = left.y;
+			return (leftM * right);
+		}
+
 		public static Matrix operator +(Matrix left, Matrix right)
 		{
 			if (left.rows == right.rows && left.cols == right.cols)
@@ -177,6 +193,18 @@
 			return result;
 		}
 
+		public Matrix Transpose()
+		{
+			Matrix transposed = new Matrix(this.cols, this.rows);
+			for (int row = 0; row < this.rows; row++)
+			{
+				for (int col = 0; col < this.cols; col++)
+				{
+					transposed.data[col, row] = this.data[row, col];
+				}
+			}
 
+			return transposed;
+		}
 	}
 }
