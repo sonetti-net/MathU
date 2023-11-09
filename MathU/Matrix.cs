@@ -77,12 +77,27 @@
 			return (A * rightM);
 		}
 
-		public static Matrix operator *(Vector2 left, Matrix right)
+		public static Matrix Transform(Vector2 left, Matrix right)
 		{
 			Matrix leftM = new Matrix(2, 1);
 			leftM.data[0, 0] = left.x;
 			leftM.data[1, 0] = left.y;
-			return (leftM * right);
+
+			Matrix result = new Matrix(2, right.rows);
+
+			for (int col = 0; col < right.cols; col++)
+			{
+				for (int row = 0; row < right.rows; row++)
+				{
+					float l = leftM.data[row, 0];
+					float r = right.data[row, col];
+					result.data[col, row] = l * r;
+
+					
+				}
+			}
+
+			return result;
 		}
 
 		public static Matrix operator +(Matrix left, Matrix right)

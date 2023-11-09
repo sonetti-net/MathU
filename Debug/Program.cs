@@ -157,8 +157,8 @@ namespace Debug
 			Matrix identity = Matrix.Identity(2);
 			Console.WriteLine($"Identity\n{identity.ToString()}");
 
-			Console.WriteLine($"{(identity*transform).ToString()}");
-			Console.WriteLine($"{(transform * identity).ToString()}");
+			//Console.WriteLine($"{(identity*transform).ToString()}");
+			Console.WriteLine($"{(Matrix.Transform(transform, identity)).ToString()}");
 
 		}
 		static int Main()
