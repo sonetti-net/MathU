@@ -52,7 +52,20 @@
 			}
 			else // Abort if mutiplication not possible.
 			{
-				throw new Exception("Cannot multiply");
+				// Multiplying a vector of n dimensions
+				if (A.cols == 1 && A.rows == B.rows && A.cols == B.cols)
+				{
+					Matrix result = new Matrix(A.rows, 1);
+					for (int i = 0; i < A.rows; i++)
+					{
+						result.data[i,0] = A.data[i, 0] * B.data[i,0];	
+					}
+					return result;
+				}
+				else
+				{
+					throw new Exception("Cannot multiply");
+				}
 			}
 		}
 
@@ -97,30 +110,19 @@
 			}
 		}
 
-		public static Matrix Dot(Matrix left, Matrix right)
+		public static float Dot(Matrix left, Matrix right)
 		{
-			if (left.rows == right.cols)
+			float result = 0;
+			if (left.cols == 1 && left.rows == right.rows && left.cols == right.cols)
 			{
-				Matrix result = new Matrix(left.rows, right.cols);
-
 				for (int i = 0; i < left.rows; i++)
 				{
-					for (int j = 0; j < right.cols; j++)
-					{
-						for (int k = 0; k < left.cols; k++)
-						{
-
-						}
-					}
+					result = result + (left.data[i,0]*right.data[i,0]);
 				}
+			}
 
 
-				return result;
-			}
-			else
-			{
-				throw new Exception("Mismatched matrix");
-			}
+			return result;
 		}
 
 		public float Magnitude()
