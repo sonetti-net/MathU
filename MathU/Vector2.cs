@@ -60,6 +60,17 @@
 			return result;
 		}
 
+
+
+		public Matrix ToColumn()
+		{
+			Matrix columnVector = new Matrix(2, 1);
+			columnVector.data[0, 0] = this.x;
+			columnVector.data[1, 0] = this.y;
+
+			return columnVector;
+		}
+
 		public override string ToString()
 		{
 			return new string($"{x} {y}");

@@ -72,6 +72,16 @@
 			return result;
 		}
 
+		public Matrix ToColumn()
+		{
+			Matrix columnVector = new Matrix(3, 1);
+			columnVector.data[0, 0] = this.x;
+			columnVector.data[1, 0] = this.y;
+			columnVector.data[2, 0] = this.z;
+
+			return columnVector;
+		}
+
 		/// <summary>
 		/// 
 		/// </summary>
