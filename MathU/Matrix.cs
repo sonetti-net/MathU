@@ -243,25 +243,30 @@
 
 		public double Determinant()
 		{
-			return Determinant(this);
+			return Determinant(this, 0);
 		}
 
-		public double Determinant(Matrix m)
+		public double Determinant(Matrix m, double d)
 		{
-			if (rows == 2 && cols == 2)
+			if (m.rows == 2 && m.cols == 2)
 			{
-				return 0;
+				return (m.data[0, 0] * m.data[1, 1]) - (m.data[0,1] * m.data[1,0]);
 			}
 			else
 			{
+				int sign = 1;
 				for (int col = 0; col < m.cols; col++)
 				{
-					Matrix matrix = this.SubMatrix(col);
-					Console.WriteLine(matrix.ToString() + "\n");
+					if (col > 0 && col % 2 == 0)
+					{
+						sign = -1;
+					}
+					d = sign * d + m.data[0, col] * Determinant(m.SubMatrix(col), d);
+					
 				}
 				
 			}
-			return 0;
+			return d;
 		}
 
 		public Matrix SubMatrix(int col)
