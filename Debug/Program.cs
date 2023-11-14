@@ -257,7 +257,7 @@ namespace Debug
 			m4x4.data[3, 2] = 0;
 			m4x4.data[3, 3] = 0;
 
-			double r = m.Determinant();
+			double r = m4x4.Determinant();
 
 			Console.WriteLine("Determinant = " + r.ToString());
 

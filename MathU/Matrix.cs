@@ -243,25 +243,33 @@
 
 		public double Determinant()
 		{
-			return Determinant(this, 0);
+			return Determinant(this);
 		}
-
-		public double Determinant(Matrix m, double d)
+		/* |a	b|
+		 * |c	d|
+		 * det = ad - bc
+		 * 
+		 */
+		public double Determinant(Matrix m)
 		{
+			double d = 0;
 			if (m.rows == 2 && m.cols == 2)
 			{
-				return (m.data[0, 0] * m.data[1, 1]) - (m.data[0,1] * m.data[1,0]);
+				d = (m.data[0, 0] * m.data[1, 1]) - (m.data[0, 1] * m.data[1, 0]);
+				return d;
 			}
 			else
 			{
-				int sign = 1;
+				
 				for (int col = 0; col < m.cols; col++)
 				{
-					if (col > 0 && col % 2 == 0)
+					int sign = -1;
+					if (col % 2 == 0)
 					{
-						sign = -1;
+						sign = 1;
 					}
-					d = sign * d + m.data[0, col] * Determinant(m.SubMatrix(col), d);
+					double det = sign * m.data[0, col];
+					d = d + det * Determinant(m.SubMatrix(col));
 					
 				}
 				
