@@ -268,8 +268,8 @@
 					{
 						sign = 1;
 					}
-					double det = sign * m.data[0, col];
-					d = d + det * Determinant(m.SubMatrix(col));
+
+					d += sign * m.data[0, col] * Determinant(m.SubMatrix(-1, col));
 					
 				}
 				
@@ -277,13 +277,20 @@
 			return d;
 		}
 
-		public Matrix SubMatrix(int col)
+		public Matrix SubMatrix(int row, int col)
 		{
 			Matrix result = new Matrix(rows-1, cols - 1);
-
+			int r = 0;
 			for (int i = 1; i < rows; i++)
 			{
 				int k = 0;
+
+				if (i == row)
+				{
+					i++;
+				}
+				if (i == this.rows) continue;
+
 				for (int j = 0; j < this.cols; j++)
 				{
 					if (j == col)
@@ -293,9 +300,10 @@
 
 					if (j == this.cols) continue;
 
-					result.data[i - 1, k] = this.data[i, j];
+					result.data[r, k] = this.data[i, j];
 					k++;
 				}
+				r++;
 			}
 
 			return result;

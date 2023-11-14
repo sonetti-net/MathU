@@ -259,7 +259,9 @@ namespace Debug
 
 			double r = m4x4.Determinant();
 
-			Console.WriteLine("Determinant = " + r.ToString());
+			Console.WriteLine(m4x4.ToString() + "\nDeterminant = " + m4x4.Determinant().ToString() + "\n\n");
+			Console.WriteLine(m.ToString() + "\nDeterminant = " + m.Determinant().ToString());
+
 
 			//Q1();
 			//Q2();
