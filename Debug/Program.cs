@@ -224,10 +224,9 @@ namespace Debug
 			Console.WriteLine($"{(Matrix.Transform(transform, identity)).ToString()}");
 
 		}
-		static int Main()
-		{
-			Console.WriteLine("AAYO");
 
+		public static void Determinants()
+		{
 			Matrix m = new Matrix(3, 3);
 			m.data[0, 0] = 4;
 			m.data[0, 1] = -1;
@@ -261,6 +260,32 @@ namespace Debug
 
 			Console.WriteLine(m4x4.ToString() + "\nDeterminant = " + m4x4.Determinant().ToString() + "\n\n");
 			Console.WriteLine(m.ToString() + "\nDeterminant = " + m.Determinant().ToString());
+		}
+
+		public static void SubMatrices()
+		{
+
+			Matrix C = new Matrix(3, 3);
+
+			C.data[0, 0] = 0;
+			C.data[0, 1] = 2;
+			C.data[0, 2] = 2;
+			C.data[1, 0] = 1;
+			C.data[1, 1] = 1;
+			C.data[1, 2] = 1;
+			C.data[2, 0] = 0;
+			C.data[2, 1] = 2;
+			C.data[2, 2] = 0;
+
+			Console.WriteLine(C.ToString() + "\n\n");
+
+			Console.WriteLine(C.Inverse().ToString() + "\n\n");
+		}
+		static int Main()
+		{
+			Console.WriteLine("AAYO");
+
+
 
 
 			//Q1();
@@ -272,6 +297,8 @@ namespace Debug
 			//Q7();
 			//Q8();
 
+			//Determinants();
+			SubMatrices();
 			//KhanAcademyDemo();
 			//Matrix identity = Matrix.Identity(3);
 

@@ -77,6 +77,20 @@
 			return (A * rightM);
 		}
 
+		public static Matrix operator *(double scalar, Matrix m)
+		{
+			Matrix result = new Matrix(m.rows, m.cols);
+			for (int i = 0; i < m.rows; i++)
+			{
+				for (int j = 0; j < m.cols; j++)
+				{
+					result.data[i, j] = scalar * m.data[i, j];
+				}
+			}
+
+			return result;
+		}
+
 		public static Matrix Transform(Vector2 left, Matrix right)
 		{
 			Matrix leftM = new Matrix(2, 1);
@@ -269,7 +283,7 @@
 						sign = 1;
 					}
 
-					d += sign * m.data[0, col] * Determinant(m.SubMatrix(-1, col));
+					d += sign * m.data[0, col] * Determinant(m.SubMatrix(0, col));
 					
 				}
 				
@@ -280,8 +294,9 @@
 		public Matrix SubMatrix(int row, int col)
 		{
 			Matrix result = new Matrix(rows-1, cols - 1);
+
 			int r = 0;
-			for (int i = 1; i < rows; i++)
+			for (int i = 0; i < rows; i++)
 			{
 				int k = 0;
 
@@ -335,6 +350,43 @@
 			}
 
 			return result;
+		}
+
+		public Matrix Minors()
+		{
+			Matrix result = new Matrix(this.rows, this.cols);
+
+			for (int i = 0; i < this.rows; i++)
+			{
+				for (int j = 0; j < this.cols; j++)
+				{
+					result.data[i, j] = Determinant(SubMatrix(i, j));
+				}
+			}
+			return result;
+		}
+
+		public Matrix Cofactor()
+		{
+			Matrix result = new Matrix(this.rows, this.cols);
+			int sign = -1;
+			for (int i = 0; i < this.rows; i++)
+			{
+				for (int j = 0; j < this.cols; j++)
+				{
+					sign = (sign > 0) ? -1 : 1;
+					result.data[i, j] = sign * this.data[i, j];
+				}
+			}
+
+			return result;
+		}
+
+		public Matrix Inverse()
+		{
+			double d = this.Determinant();
+			Matrix inverse = (1 / d) * this.Minors().Cofactor().Transpose();
+			return inverse;
 		}
 	}
 }
