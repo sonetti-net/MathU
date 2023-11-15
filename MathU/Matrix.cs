@@ -30,6 +30,13 @@
 			return output;
 		}
 
+		// Indexer to access elements using the [int, int] syntax
+		public double this[int row, int col]
+		{
+			get { return data[row, col]; }
+			set { data[row, col] = value; }
+		}
+
 		public static Matrix operator *(Matrix A, Matrix B)
 		{
 			if (A.cols == B.rows)
@@ -78,6 +85,20 @@
 		}
 
 		public static Matrix operator *(double scalar, Matrix m)
+		{
+			Matrix result = new Matrix(m.rows, m.cols);
+			for (int i = 0; i < m.rows; i++)
+			{
+				for (int j = 0; j < m.cols; j++)
+				{
+					result.data[i, j] = scalar * m.data[i, j];
+				}
+			}
+
+			return result;
+		}
+
+		public static Matrix operator *(Matrix m, double scalar)
 		{
 			Matrix result = new Matrix(m.rows, m.cols);
 			for (int i = 0; i < m.rows; i++)

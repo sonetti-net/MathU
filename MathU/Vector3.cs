@@ -82,13 +82,34 @@
 			return columnVector;
 		}
 
+		public Matrix ToRow()
+		{
+			Matrix columnVector = new Matrix(1, 3);
+			columnVector.data[0, 0] = this.x;
+			columnVector.data[0, 1] = this.y;
+			columnVector.data[0, 2] = this.z;
+
+			return columnVector;
+		}
+
+		public Vector3 Unit()
+		{
+			Vector3 UnitV = new Vector3();
+
+			UnitV.x = this.x / Magnitude();
+			UnitV.y = this.y / Magnitude();
+			UnitV.z = this.z / Magnitude();
+
+			return UnitV;
+		}
+
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <returns>String representation of Vector3 x y z</returns>
 		public override string ToString()
 		{
-			return new string($"{x} {y} {z}");
+			return new string($"{x}, {y}, {z}");
 		}
 	}
 }
