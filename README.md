@@ -1,6 +1,6 @@
 # MathU
 Math Utilities: Stuff I've gone and learned at university.
-Last updated: 26/10/2023
+Last updated: 15/11/2023
 
 ***
 
@@ -14,7 +14,21 @@ Last updated: 26/10/2023
 
 ### Matrices
 - Usage: Matrix matrix1x3 = new Matrix(1, 3);
-- Operations: *
+- Operations:
+-   * ## nxn Dimensions
+-   * *(Matrix*Matrix), (Matrix*Vector2), (Matrix*Scalar): returns Matrix of mxn
+    * Magnitude(): Returns the magnitude or norm of a matrix.
+    * Unit(): Divides each matrix value by it's norm.
+    * Transpose(): Turns rows into colums.
+    * Determinant(): Returns a floating point value of the input Matrix' determinant.
+    * SubMatrix(int row, int col): Returns a matrix of dimensions: this->rows-1, this->cols-1, ignoring rows and colums specified in arguments.
+    * Minors(): Returns a matrix of determinants obtained from SubMatrix.
+    * Cofactor(): Multiplies each cell by positive or negative in a checkerbox pattern.
+    * Inverse(): Returns the inverse of the Matrix.
+ 
+    * ## 3x3 Dimensions
+    * Project(Vector3 n, float scale): Returns a Matrix to Projects onto a plane scaled by input. 0 for orthographic projection.
+    
 - Features: Will throw exception when multiplication not supported.
 ***
 
