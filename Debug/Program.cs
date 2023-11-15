@@ -203,24 +203,12 @@ namespace Debug
 
 			float scale = 5;
 
-			Vector3 nN = new Vector3(0.5f, -0.1f, 0.9f);
+			Vector3 nN = new Vector3(0.267f, -0.535f, 0.802f);
 			Vector3 n = nN.Unit(); // normalize
 
-			Matrix P = Matrix.Identity(3);
+			Matrix P = Matrix.Project(n, 5);
 
 			//	Construct a matrix to scale by a factor of 5 about the plane through the origin perpendicular to the vector [0.267 , − 0.535 , 0.802].
-
-			P[0, 0] += (scale - 1) * (n.x * n.x);
-			P[0, 1] += (scale - 1) * (n.x * n.y);
-			P[0, 2] += (scale - 1) * (n.x * n.z);
-
-			P[1, 0] += (scale - 1) * (n.x * n.y);
-			P[1, 1] += (scale - 1) * (n.y * n.y);
-			P[1, 2] += (scale - 1) * (n.y * n.z);
-
-			P[2, 0] += (scale - 1) * (n.x * n.z);
-			P[2, 1] += (scale - 1) * (n.y * n.z);
-			P[2, 2] += (scale - 1) * (n.z * n.z);
 
 
 			Console.WriteLine($"Construct a matrix to scale by a factor of {scale} about the plane through the origin perpendicular to the vector.");
@@ -228,25 +216,12 @@ namespace Debug
 			Console.WriteLine("\n\nP = \n" + P.ToString());
 
 			//	Construct a matrix to orthographically project onto the plane through the origin perpendicular to the vector [0.267 , − 0.535 , 0.802].
-			scale = 0;
 
-			Matrix Q = Matrix.Identity(3);
-
-			Q[0, 0] += (scale - 1) * (n.x * n.x);
-			Q[0, 1] += (scale - 1) * (n.x * n.y);
-			Q[0, 2] += (scale - 1) * (n.x * n.z);
-
-			Q[1, 0] += (scale - 1) * (n.x * n.y);
-			Q[1, 1] += (scale - 1) * (n.y * n.y);
-			Q[1, 2] += (scale - 1) * (n.y * n.z);
-
-			Q[2, 0] += (scale - 1) * (n.x * n.z);
-			Q[2, 1] += (scale - 1) * (n.y * n.z);
-			Q[2, 2] += (scale - 1) * (n.z * n.z);
+			P = Matrix.Project(n, 0);
 
 			Console.WriteLine($"Construct a matrix to orthographically project onto the plane through the origin perpendicular to the vector.");
 			Console.WriteLine("^n = " + n.ToString());
-			Console.WriteLine("\n\nQ = \n" + Q.ToString());
+			Console.WriteLine("\n\nP = \n" + P.ToString());
 			//Console.WriteLine("\n\n"+ (P*S).ToString());
 
 		}

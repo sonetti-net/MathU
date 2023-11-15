@@ -409,5 +409,25 @@
 			Matrix inverse = (1 / d) * this.Minors().Cofactor().Transpose();
 			return inverse;
 		}
+
+
+		public static Matrix Project(Vector3 n, float scale)
+		{
+			Matrix P = Matrix.Identity(3);
+
+			P[0, 0] += (scale - 1) * (n.x * n.x);
+			P[0, 1] += (scale - 1) * (n.x * n.y);
+			P[0, 2] += (scale - 1) * (n.x * n.z);
+
+			P[1, 0] += (scale - 1) * (n.x * n.y);
+			P[1, 1] += (scale - 1) * (n.y * n.y);
+			P[1, 2] += (scale - 1) * (n.y * n.z);
+
+			P[2, 0] += (scale - 1) * (n.x * n.z);
+			P[2, 1] += (scale - 1) * (n.y * n.z);
+			P[2, 2] += (scale - 1) * (n.z * n.z);
+
+			return P;
+		}
 	}
 }
