@@ -2,11 +2,11 @@
 {
 	public struct Vector3
 	{
-		public float x;
-		public float y;
-		public float z;
+		public double x;
+		public double y;
+		public double z;
 
-		public Vector3(float _x, float _y, float _z)
+		public Vector3(double _x, double _y, double _z)
 		{
 			x = _x;
 			y = _y;
@@ -39,7 +39,7 @@
 
 		public float Magnitude()
 		{
-			return (float)Operations.Sqrt(Operations.Square(x) + Operations.Square(y) + Operations.Square(z));
+			return (float)Operations.Sqrt((x * x) + (y * y) + (z * z));
 		}
 
 		public static Vector3 Distance(Vector3 Origin, Vector3 Destination)
@@ -52,9 +52,9 @@
 			return new Vector3(this.x / this.Magnitude(), this.y / this.Magnitude(), this.z / this.Magnitude());
 		}
 
-		public static float Dot(Vector3 left, Vector3 right)
+		public static double Dot(Vector3 left, Vector3 right)
 		{
-			float result = 0;
+			double result = 0;
 
 			result += left.x * right.x;
 			result += left.y * right.y;

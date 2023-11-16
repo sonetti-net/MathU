@@ -203,10 +203,11 @@ namespace Debug
 
 			float scale = 5;
 
-			Vector3 nN = new Vector3(0.267f, -0.535f, 0.802f);
-			Vector3 n = nN.Unit(); // normalize
+			Vector3 nN = new Vector3(0.5, -0.1, 0.9);
+			Vector3 n = nN.Normalized(); // normalize
 
-			Matrix P = Matrix.Project(n, 5);
+			float mag = nN.Magnitude();
+			Matrix P = Matrix.Project(n, 2);
 
 			//	Construct a matrix to scale by a factor of 5 about the plane through the origin perpendicular to the vector [0.267 , − 0.535 , 0.802].
 
@@ -224,7 +225,7 @@ namespace Debug
 			Console.WriteLine("\n\nP = \n" + P.ToString());
 
 			//	Construct a matrix to reflect orthographically project onto the plane through the origin perpendicular to the vector [0.267 , − 0.535 , 0.802].
-			P = Matrix.Project(n, -1);
+			P = Matrix.Reflect(n);
 
 			Console.WriteLine($"Construct a matrix to reflect orthographically project onto the plane through the origin perpendicular to the vector.");
 			Console.WriteLine("^n = " + n.ToString());
