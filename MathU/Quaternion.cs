@@ -8,39 +8,52 @@ namespace MathU
 {
 	public struct Quaternion
 	{
-		public float i, j, k, w;
+		public double w, i, j, k;
 
-		public Quaternion(float i, float j, float k, float w)
+		public Quaternion(double w, double i, double j, double k)
 		{
-			
+			this.w = w;
 			this.i = i;
 			this.j = j;
 			this.k = k;
-			this.w = w;
+			
 		}
 
 		public Quaternion(float value)
 		{
-
+			this.w = value;
 			this.i = value;
 			this.j = value;
 			this.k = value;
-			this.w = value;
 		}
 		//deep
 		public override string ToString()
 		{
-			return $"({i}, {j}, {k}, {w}";
+			return $"({w}, ({i}, {j}, {k})";
 		}
 
-		public static Quaternion operator +(Quaternion left, Quaternion right)
+		public double Magnitude()
 		{
-			Quaternion result = new Quaternion(0);
+			double result = (w * w) + (i * i) + (j * j) + (k * k);
 
-			result.i = left.i + right.i;
-			result.j = left.j + right.j;
-			result.k = left.k + right.k;
-			result.w = left.w + right.w;
+			return Operations.Sqrt(result);
+		}
+
+		public Quaternion Conjugate()
+		{
+			Quaternion result = new Quaternion(w, -i, -j, -k);
+
+			return result;
+		}
+
+		public Quaternion Inverse()
+		{
+			Quaternion result = Conjugate();
+
+			result.w = w / this.Magnitude();
+			result.i = i / this.Magnitude();
+			result.j = j / this.Magnitude();
+			result.k = k / this.Magnitude();
 
 			return result;
 		}

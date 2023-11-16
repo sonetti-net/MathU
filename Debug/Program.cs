@@ -233,6 +233,12 @@ namespace Debug
 			//Console.WriteLine("\n\n"+ (P*S).ToString());
 
 		}
+
+		public static void Q9()
+		{
+
+		}
+
 		public static void KhanAcademyDemo()
 		{
 			Vector2 a = new Vector2(3, 2);
