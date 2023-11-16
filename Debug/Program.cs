@@ -222,6 +222,13 @@ namespace Debug
 			Console.WriteLine($"Construct a matrix to orthographically project onto the plane through the origin perpendicular to the vector.");
 			Console.WriteLine("^n = " + n.ToString());
 			Console.WriteLine("\n\nP = \n" + P.ToString());
+
+			//	Construct a matrix to reflect orthographically project onto the plane through the origin perpendicular to the vector [0.267 , − 0.535 , 0.802].
+			P = Matrix.Project(n, -1);
+
+			Console.WriteLine($"Construct a matrix to reflect orthographically project onto the plane through the origin perpendicular to the vector.");
+			Console.WriteLine("^n = " + n.ToString());
+			Console.WriteLine("\n\nP = \n" + P.ToString());
 			//Console.WriteLine("\n\n"+ (P*S).ToString());
 
 		}
