@@ -236,7 +236,9 @@ namespace Debug
 
 		public static void Q9()
 		{
+			Quaternion i = Quaternion.Identity();
 
+			Console.WriteLine(i.ToString());
 		}
 
 		public static void KhanAcademyDemo()
@@ -330,8 +332,8 @@ namespace Debug
 			//Q5();
 			//Q6();
 			//Q7();
-			Q8();
-
+			//Q8();
+			Q9();
 			//Determinants();
 			//SubMatrices();
 			//KhanAcademyDemo();

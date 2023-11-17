@@ -14,6 +14,22 @@
 			this.data = new double[rows, cols];
 		}
 
+		public Matrix(Quaternion quat)
+		{
+			this = Matrix.Identity(3);
+			this[0, 0] -= 2 * (quat.y * quat.y) - 2 * (quat.z * quat.z);
+			this[0, 1] = 2 * (quat.x * quat.y) + 2 * (quat.w * quat.z);
+			this[0, 2] = 2 * (quat.x * quat.z) - 2 * (quat.w * quat.y);
+
+			this[1, 0] = 2 * (quat.x * quat.y) - 2 * (quat.w * quat.z);
+			this[1, 1] -= 2 * (quat.x * quat.x) - 2 * (quat.z * quat.z);
+			this[1, 2] = 2 * (quat.y * quat.z) + 2 * (quat.w * quat.x);
+
+			this[2, 0] = 2 * (quat.x * quat.z) + 2 * (quat.w * quat.y);
+			this[2, 1] = 2 * (quat.y * quat.z) - 2 * (quat.w * quat.x);
+			this[2, 2] -= 2 * (quat.x * quat.x) - 2 * (quat.y * quat.y); 
+		}
+
 		public override string ToString()
 		{
 			string output = string.Empty;
