@@ -60,7 +60,24 @@
 			return result;
 		}
 
+	
+		public Vector2 Rotate(float angle)
+		{
+			angle = MathUtils.Rad(angle);
 
+			Matrix m = new Matrix(2, 2);
+			m[0, 0] = MathF.Cos(angle);
+			m[0, 1] = -MathF.Sin(angle);
+			m[1, 0] = MathF.Sin(angle);
+			m[1, 1] = MathF.Cos(angle);
+
+			Matrix r = m * this.ToColumn();
+
+			this.x = (float)r.data[0, 0];
+			this.y = (float)r.data[1, 0];
+			return this;
+
+		}
 
 		public Matrix ToColumn()
 		{

@@ -236,9 +236,11 @@ namespace Debug
 
 		public static void Q9()
 		{
-			Quaternion i = Quaternion.Identity();
+			Vector3 v = new Vector3(0, 3, 4);
 
-			Console.WriteLine(i.ToString());
+			Quaternion r = Quaternion.Rotate(70, v.Normalized());
+
+			Console.WriteLine(r.ToString());
 		}
 
 		public static void KhanAcademyDemo()
@@ -295,8 +297,14 @@ namespace Debug
 
 			double r = m4x4.Determinant();
 
-			Console.WriteLine(m4x4.ToString() + "\nDeterminant = " + m4x4.Determinant().ToString() + "\n\n");
+			//Console.WriteLine(m4x4.ToString() + "\nDeterminant = " + m4x4.Determinant().ToString() + "\n\n");
 			Console.WriteLine(m.ToString() + "\nDeterminant = " + m.Determinant().ToString());
+
+			Console.WriteLine((m.Inverse()).ToString());
+
+			//Console.WriteLine(m.Minors().ToString());
+			//Console.WriteLine(m.Minors().Cofactor().ToString());
+
 		}
 
 		public static void SubMatrices()
@@ -322,8 +330,15 @@ namespace Debug
 		{
 			Console.WriteLine("AAYO");
 
+			CircleCollider c1 = new CircleCollider(new Vector2(2, 3), 3);
+			CircleCollider c2 = new CircleCollider(new Vector2(4, 3), 3);
 
+			Console.WriteLine(c1.Collides(c2));
 
+			c2.Move(new Vector2(10, 15));
+			Console.WriteLine(c1.Collides(c2));
+			Vector2 p = new Vector2(2, 3);
+			p = p.Rotate(90);
 
 			//Q1();
 			//Q2();
@@ -333,7 +348,7 @@ namespace Debug
 			//Q6();
 			//Q7();
 			//Q8();
-			Q9();
+			//Q9();
 			//Determinants();
 			//SubMatrices();
 			//KhanAcademyDemo();

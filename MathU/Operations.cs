@@ -53,4 +53,9 @@
 		}
 		return y;
 	}
+
+	public static double Rad(double x)
+	{
+		return x * (Math.PI / 180);
+	}
 }
