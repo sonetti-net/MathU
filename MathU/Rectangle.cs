@@ -12,7 +12,5 @@
 			this.Top = top;
 			this.Bottom = bottom;
 		}
-
-
 	}
 }

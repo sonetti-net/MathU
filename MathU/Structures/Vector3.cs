@@ -13,6 +13,11 @@
 			z = _z;
 		}
 
+		public static Vector3 Zero()
+		{
+			return new Vector3(0, 0, 0);
+		}
+
 		public static Vector3 operator +(Vector3 a, Vector3 b)
 		{
 			return new Vector3(a.x + b.x, a.y + b.y, a.z + b.z);
@@ -27,7 +32,7 @@
 		{
 			if (divisor == 0)
 			{
-				return new Vector3(0, 0, 0);
+				return Vector3.Zero();
 			}
 			return new Vector3(a.x / divisor, a.y / divisor, a.z / divisor);
 		}
@@ -64,17 +69,17 @@
 		}
 		public static Vector3 Cross(Vector3 left, Vector3 right)
 		{
-			Vector3 result = new Vector3();
-			result.x = (left.y * right.z) - (left.z * right.y);
-			result.y = (left.z * right.x) - (left.x * right.z);
-			result.z = (left.x * right.y) - (left.y * right.x);
-
+			Vector3 result = new Vector3(
+				(left.y * right.z) - (left.z * right.y), //		X
+				(left.z * right.x) - (left.x * right.z), //		Y
+				(left.x * right.y) - (left.y * right.x)); //	Z
 			return result;
 		}
 
 		public Matrix ToColumn()
 		{
 			Matrix columnVector = new Matrix(3, 1);
+
 			columnVector.data[0, 0] = this.x;
 			columnVector.data[1, 0] = this.y;
 			columnVector.data[2, 0] = this.z;
@@ -85,6 +90,7 @@
 		public Matrix ToRow()
 		{
 			Matrix columnVector = new Matrix(1, 3);
+
 			columnVector.data[0, 0] = this.x;
 			columnVector.data[0, 1] = this.y;
 			columnVector.data[0, 2] = this.z;

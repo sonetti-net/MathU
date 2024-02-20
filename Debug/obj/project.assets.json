@@ -27,19 +27,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Sam\\.nuget\\packages\\": {}
+    "C:\\Users\\garde\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\Sonetti\\Development\\Libraries\\MathU\\Debug\\Debug.csproj",
+      "projectUniqueName": "C:\\Users\\garde\\source\\repos\\sonetti-net\\MathU\\Debug\\Debug.csproj",
       "projectName": "Debug",
-      "projectPath": "F:\\Sonetti\\Development\\Libraries\\MathU\\Debug\\Debug.csproj",
-      "packagesPath": "C:\\Users\\Sam\\.nuget\\packages\\",
-      "outputPath": "F:\\Sonetti\\Development\\Libraries\\MathU\\Debug\\obj\\",
+      "projectPath": "C:\\Users\\garde\\source\\repos\\sonetti-net\\MathU\\Debug\\Debug.csproj",
+      "packagesPath": "C:\\Users\\garde\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\garde\\Source\\Repos\\sonetti-net\\MathU\\Debug\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Sam\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\garde\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -53,8 +53,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "F:\\Sonetti\\Development\\Libraries\\MathU\\MathU\\MathU.csproj": {
-              "projectPath": "F:\\Sonetti\\Development\\Libraries\\MathU\\MathU\\MathU.csproj"
+            "C:\\Users\\garde\\source\\repos\\sonetti-net\\MathU\\MathU\\MathU.csproj": {
+              "projectPath": "C:\\Users\\garde\\source\\repos\\sonetti-net\\MathU\\MathU\\MathU.csproj"
             }
           }
         }
@@ -63,6 +63,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -74,7 +79,8 @@
           "net47",
           "net471",
           "net472",
-          "net48"
+          "net48",
+          "net481"
         ],
         "assetTargetFallback": true,
         "warn": true,
@@ -83,7 +89,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
       }
     }
   }
